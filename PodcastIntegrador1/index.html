@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles/normalize.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <title>Podcast</title>
+  </head>
+  <body>
+      <header class= "header">
+        <input type="checkbox" id="screen_input" class="screen_input">
+        <div class="screen_header">  
+            <picture>
+                <img alt="Logo de la página Podcast circular azul con las letras bd en su interior" src="images/logo.svg">
+            </picture>    
+                <label id="label_header" class="label_header" for="screen_input">
+                </label>    
+          </div> 
+            <nav class="screen_nav">
+              <ul class="screen_nav_ul">
+                <li><a href="#section_podcast">EPISODIOS</a></li>
+                <li><a href="#section_nosotros">NOSOTROS</a></li>
+                <li><a href="#section_invitadas">ENTREVISTAS</a></li>
+                <li><a href="#section_topicos">TÓPICOS</a></li>
+              </ul>
+            </nav>
+        </header> 
+        <section>
+            <div id="section_div_aboutit" class="section_div_aboutit">
+                <h1>Hello <span class="decor"></span>world pale blue dot<span>.</span></h1>
+                <p class="section_aboutit_p_mobile">Un podcast que explora el mundo de la programación. Nuevos episodios, todos los jueves cada 15 días.</p>
+                <p class="section_aboutit_p_desktop">El portal de podcasts que explora el mundo de la programación y la tecnología. Nuevos episodios, todos los jueves cada 15 días.</p>
+                <a role= "button" class="button_section_aboutit" href="#section_nosotros">CONOCÉ MÁS</a>              
+              </div>
+        </section> 
+        <section id="section_podcast" class="skewed">
+          <h2>Episodios</h2>
+          <div class="section_podcast">
+            <div class="section_podcast_frame">
+              <iframe src="https://open.spotify.com/embed/show/2ySVrxGkN6n6frMTo9Nsrt">
+              </iframe>
+            </div>
+            <div class="section_podcast_frame">
+              <iframe   src="https://open.spotify.com/embed/show/4kYCRYJ3yK5DQbP5tbfZby">
+              </iframe>
+            </div>
+            <div class="section_podcast_frame">
+              <iframe  src="https://open.spotify.com/embed/show/5JxcIaIkN8zx3Zy7yD9snv">
+              </iframe>
+            </div>
+            <div class="section_podcast_frame">
+              <iframe src="https://open.spotify.com/embed/show/2Iibd5A6R7mxkCm4NwNmUn">
+              </iframe>
+          </div>
+        </div>
+      </section> 
+      <section id="section_nosotros">
+        <div class="section_nosotros">
+          <div class="section_nosotros_item item1_nosotros"><picture>
+            <img alt="Imagen de celular con la fotografía de Joseph C. Towler Jr" src="images/phone.png">
+          </picture>
+        </div>
+        <div class="section_nosotros_item item2_nosotros">
+          <h2>De dónde venimos</h2>
+          <p>Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light.
+          <span>-</span>Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.</p>
+          </div>
+        </div>
+        </section>
+        <section id="section_invitadas">
+          <h2>Invitadas/os estelares</h2>
+          <div class="section_invitadas">
+          <div class="section_invitadas_item_grid">
+            <img alt="Fotografía de Grace Hopper" src="images/grace-hopper.png">
+          </div>
+          <div class="section_invitadas_item_grid">
+            <img alt="Fotografía de Karie Bouman" src="images/Katie-Bouman.png">
+          </div>
+          <div class="section_invitadas_item_grid">
+            <img alt="Fotografía de Margaret Hamilton" src="images/Margaret_Hamilton.png">
+          </div>
+          <div class="section_invitadas_item_grid">
+            <picture><img alt="Fotografía de un Computador E.R.A.Univac 1103 en el año 1950" src="images/An_E.R.A.Univac_1103_computer_in_the_1950s.png"></picture>
+          </div>
+          <div class="section_invitadas_item_grid">
+            <picture><img alt="Operadores de computadoras con un Eniac: la primera computadora de uso general programable del mundo" src="images/Computer_operators_with_an_Eniac—the_world’s_first_programmabl_general-purpose_computer.png"></picture>
+          </div>
+          <div class="section_invitadas_item_grid">
+            <picture><img alt="Fotografía de Susan Kare" src="images/susan-kare.png"></picture>
+          </div>
+        </div>
+        </section>
+    <section id="section_topicos">
+      <h2>Algunos de nuestros temas</h2>
+      <div class="section_topicos_grid">
+        <div class="section_topicos_items_grid item1"><picture><img alt="Imagen que simboliza el trabajo remoto" src="images/icon1.svg"></picture><h3>Trabajo remoto</h3></div>
+        <div class="section_topicos_items_grid item2"><picture><img alt="Imagen que simboliza la programación" src="images/icon2.svg"></picture><h3>Repensando la<br>programación</h3></div>
+        <div class="section_topicos_items_grid item3"><picture><img alt="Imagen que simboliza bases del código " src="images/icon3.svg"></picture><h3>Bases del código</h3></div>
+        <div class="section_topicos_items_grid item4"><picture><img alt="Imagen que simboliza  la seguridad informática" src="images/icon4.svg"></picture><h3>Seguridad informática</h3></div>
+      </div>
+    </section>
+    <section id="section_news">
+      <div class="section_news skewed">
+         <div class="section_news_title"><h2>¿Querés las últimas novedades?</h2>
+      <a role= "button" class="button_section_news" href="#section_podcast">ESCUCHÁ LOS EPISODIOS</a> 
+    </div>
+      </div>
+  </section>
+    <footer id="footer_podcast">
+      <div class="footer_posdcast_container">
+      <p>© 2019— Hello blue pale dot</p>   
+      <div class="footer_podcast_icon">  
+        <a href="https://www.spotify.com/co/" target="_blank"><i class="fa fa-spotify"></i></a> 
+        <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a> 
+        <a href="https://twitter.com/explore" target="_blank"><i class="fa fa-twitter"></i></a> 
+        <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a> 
+        <a href="https://telegram.org/" target="_blank"><i class="fa fa-telegram"></i></a>    
+      </div>
+      </div>
+    </footer>
+    </body>
+</html>

@@ -1,0 +1,690 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&family=IBM+Plex+Sans+SemiBold');
+
+body{
+  margin:0;
+  padding: 0;
+}
+h1, h2, h3, a{
+  margin: 0;
+  padding: 0;
+}
+ 
+@mixin letter($font, $size, $color, $spacing, $line_h, $decoration, $align, $f_weight){
+  font-family: $font;
+  font-size: $size;
+  color: $color;
+  letter-spacing: $spacing;
+  line-height: $line_h;
+  text-decoration: $decoration;  
+  text-align: $align;
+  font-weight: $f_weight; 
+}
+
+@mixin menu {
+  width: 1.125em;
+  height: 0.125em;
+  background-color: #000000;  
+  cursor: pointer;
+  z-index: 2;
+}
+
+@mixin animation(){
+  transition: all .5s ease-in-out;
+  transform: scale(0.8);
+  background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+}
+
+@mixin button($padding,$margin_top) {
+  position: relative;
+  display: inline-block;
+  background-color: #00F3BB;
+  padding: $padding;
+  margin-top: $margin_top; 
+  cursor: pointer;
+}
+
+@mixin hover_decor($color){
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: $color;
+  top: 49%;
+}
+
+//Para dispositivos móviles
+//Sección header - Menú 
+.screen_header {
+    display: flex;
+    justify-content: space-between;
+    height: 1.375em;
+    padding: 0.625em 1em 0em 1em;
+  }
+
+.label_header {
+    @include menu(); 
+    margin-top: 0.375em;
+
+    &:before{
+    content: ' ';
+    @include menu(); 
+    margin-top: 0.25em; 
+    position: absolute;
+    }
+    
+    &:after{
+    content: ' ';
+    @include menu(); 
+    margin-top: 0.5em;
+    position: absolute;
+    }
+}
+
+.screen_input{
+    z-index: 2;
+    margin: 0em;
+    width: 2.5em;
+    position: absolute;
+    top: 0.3125em;
+    visibility: hidden; 
+}
+
+.screen_nav{
+  display: none;
+  background-color: #0000EC;
+  transition: all .4s ease-in-out; 
+}
+
+.screen_nav_ul{
+  margin: 0;
+  padding: 1em 1em 0em 1em;
+  
+  li {
+    list-style-type: none;
+    padding-bottom: 1.5em;
+  }
+  a {
+    @include letter('IBM Plex Mono', 1em, #FFFFFF, 0, 1.75em, none, none, none);
+  }
+}
+
+.screen_input:checked ~  .screen_header > .label_header:before {
+  margin-top: 0.375em;
+  width: 0.875em;
+  transform: rotate(45deg); 
+}
+
+.screen_input:checked ~  .screen_header > .label_header:after {
+  margin-top: 6px;
+  width: 14px;
+  transform: rotate(-45deg); 
+}
+
+.screen_input:checked ~  .screen_header > .label_header  {
+  background: none;
+}
+
+.screen_input:checked ~  .screen_nav {
+  display: block;
+}
+
+//Sección aboutit Descripción de la página
+.section_div_aboutit{
+    top:2.28125em;
+    margin: 1.8125em 1em 1.5em 1em;
+    height: 250px;
+    h1{
+      width: calc(100vw - 92px);
+      @include letter('IBM Plex Sans', 2.25rem, #060A24, 0, 2.625rem, none, none, normal);
+    }
+}
+
+.decor{
+  height: 0.0625em;
+  width: 2.5em;
+  margin-top: 0.65em;
+  background-color: #000000;
+  position: absolute;
+}
+
+.section_aboutit_p_mobile{
+    position: relative;
+    @include letter('IBM Plex Mono', 14px, #060A24, 0, 22px, none, justify, normal);
+    margin: 0;
+    margin-top: 16px;
+}
+
+.section_aboutit_p_desktop {
+  display: none;
+}
+
+.button_section_aboutit{
+  @include button(13px 96px, 36px); 
+  @include letter('IBM Plex Mono', 16px, #060A24, 0, 22px, none, center, bold);
+}
+
+.button_section_aboutit:hover{
+  @include animation(); 
+}
+
+.skewed {
+  z-index: 1;
+  background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+  transform: skewY(-6deg);
+  transform-origin: bottom right;
+  position: relative;
+}
+//Sección podcast - iframes con acceso a los podcast
+#section_podcast{
+  height: 75.218755em;
+  h2{
+    transform: skewY(6deg);
+    transform-origin: top right;
+    margin:0;
+    padding: 64px 16px 10px 16px;
+    height: 42px;
+    @include letter('IBM Plex Sans', 2.25rem, #FFFFFF, 0, 2.625rem, none, none, normal);
+    }
+}
+
+.section_podcast{
+  display: grid;
+  grid-template-columns: 1;
+  transform: skewY(6deg);
+  transform-origin: top right;
+}
+
+.section_podcast_frame{
+  position: relative;
+  height: 225px;
+  width: calc(100vw - 22px);
+  overflow: hidden;
+  padding-top: 2.25%;
+  margin: 11px 11px 0px 11px;
+}
+.section_podcast_frame iframe{
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0px;
+  left:0px;
+  bottom:0px;
+  right:0px; 
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+}
+//Sección  ¿De dónde venimos?
+#section_nosotros{
+  transform: translate(0, -4em);
+  z-index: 2;
+  position: relative;
+}
+.section_nosotros{
+  height: 51.375em;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-gap: 1.6875em;
+}
+
+.section_nosotros_item{
+  z-index: 2;
+  position: relative;
+  img{
+    width: 100%;
+    margin:0;
+  }  
+  h2{
+    margin:0;
+    padding: 0px 16px 0px 16px;
+    @include letter('IBM Plex Sans', 2.25rem, #060A24, 0, 2.625rem, none, none, normal);
+  }
+  p{
+    margin:0;
+    padding: 8px 16px 0px 16px;
+    @include letter('IBM Plex Mono', 0.875rem, #060A24, 0, 1.375rem, none, none, normal);
+  }
+  span{
+    font-size: 0;
+    line-height: 12px;
+    display: block;
+}
+}
+//Sección Invitadas/os estelares
+#section_invitadas{
+  h2{
+    margin:0;
+    padding: 54px 16px 14px 16px;
+    @include letter('IBM Plex Sans', 2.25rem, #060A24, 0, 2.625rem, none, none, normal);
+  }
+}
+
+.section_invitadas{
+  display: grid;
+  grid-template-columns: 1;
+  z-index: 2;
+  position: relative;
+}
+
+.section_invitadas_item_grid{
+  padding:0;
+  height: 243px;
+
+  img{
+    width: 100%;
+  }
+}
+//Sección Tópicos - algunos de nuestros temas
+#section_topicos{
+  margin:0;
+  height: 63.625em;
+  h2{
+    padding: 1.7777em 0.4444em 0.6666em 0.4444em;
+    @include letter('IBM Plex Sans', 2.25rem, #060A24, 0, 2.625rem, none, none, normal);
+  }
+}
+
+.section_topicos_grid{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.section_topicos_items_grid{
+  text-align: center;
+  height: auto;
+
+  img{
+    padding: 13px 108px 13px 108px;
+  }
+  
+  h3{
+    @include letter('IBM Plex Sans-SemiBold', 1.5rem, #060A24, 0, none, none, none, none);
+  }
+}
+.item1{
+  margin-top: 0;
+}
+.item2{
+  margin-top: 2.25em;
+}
+.item3{
+  margin-top: 3.25em;
+}
+.item4{
+  margin-top: 3.25em;
+}
+//Sección quieres las últimas novedades? 
+.section_news{
+  height: 21.3125em;
+  z-index: 2;
+  position: relative;
+} 
+
+.section_news_title{
+  padding: 4em 1em 0em 1em;
+  transform: skewY(6deg);
+  transform-origin: top right;
+  text-align: center;
+  h2{
+    @include letter('IBM Plex Sans', 2.25rem, #FFFFFF, 0, 2.625çrem, none, center, normal);
+  }
+}
+
+.button_section_news{
+  top:2.25em;
+  @include button(0.8125em 2.6875em, none); 
+  @include letter('IBM Plex Mono', 1em, #060A24, 0, 1.375em, none, center, bold);
+}
+.button_section_news:hover{
+  @include animation(); 
+}
+//Sección pie de página
+.footer_posdcast_container{
+  z-index: 3;
+  position: relative;
+  background-color: #FFFFFF;
+  height: 7.5625em;
+  p{
+    margin: 0;
+    padding: 1.714em 3.286em 0em 3.286em;
+    @include letter('IBM Plex Mono', 0.875em, #060A24, 0, 1.375em, none, center, normal);
+  }
+}
+.footer_podcast_icon{
+  display: flex;
+  padding: 1em 2.8125em 1.9375em 1.9375em;
+  justify-content: space-between;
+  i{
+    padding: 0em 1em 1em 1em;
+  }
+}
+
+//Media query para dispositivos 768px o tablets
+@media (min-width: 768px){
+
+  .label_header{
+    display: none;
+  }
+
+.screen_nav{
+    display: inline-block;
+    background-color:white;
+    }
+
+.screen_nav_ul {
+    padding: 0px;
+    position: relative;
+    li{
+    display: inline-block;
+    padding: 0px 0px 0px 8px;
+    height: 28px;
+    a {
+      position: relative;
+      font-family: 'IBM Plex Mono';
+      font-size: 16px;
+      color: #060A24;
+      letter-spacing: 0;
+      line-height: 28px;
+    }
+  }
+}
+
+.screen_nav_ul a:hover{
+  @include letter('IBM Plex Mono', 1em, #00F3BB, 0, 1.75em, none, center, bold);
+
+  &:before{
+    @include hover_decor(#00F3BB)
+  }
+}
+
+.screen_nav_ul a:active{
+  @include letter('IBM Plex Mono', 1em, rgba(6,10,36,0.56), 0, 1.75em, none, center, normal);
+
+  &:before{
+    @include hover_decor(rgba(6,10,36,0.56));
+  }
+}
+
+.header{
+ padding: 0px 100px;
+}
+
+.screen_header{
+  grid-area: screen_header;
+  height: 28px;
+  padding: 22px 0px 22px 0px; 
+
+  img{
+    height: 36px;
+    width: 36px;
+  }
+  }
+
+.screen_nav{
+    grid-area: screen_nav;
+    padding: 26px 0px 26px 0px; 
+  }
+
+  .header{
+  display: grid; 
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "screen_header screen_nav";
+}
+
+.decor{
+  margin-top: 0.4em;
+}
+
+.section_div_aboutit{
+  margin: 2em 6.25em 0.3125em 6.25em;
+  height: auto;
+  h1{
+    width: auto;
+    padding-top: 0.40625em;
+    padding-bottom: 0.25em;
+    @include letter('IBM Plex Sans', 4rem, #060A24, 0, 2.625rem, none, none, normal);
+  }
+
+  span{
+    @include letter('IBM Plex Sans', 4rem, #0000EC, 0, 0rem, none, none, normal);
+  }
+}
+
+.section_aboutit_p_mobile{
+   display: none;
+}
+
+.section_aboutit_p_desktop {
+  display: block;
+  margin:0;
+  @include letter('IBM Plex Mono', 1rem, #060A24, 0, 1.5rem, none, justify, normal);
+
+}
+
+.button_section_aboutit{
+  @include button(16px 59px,16px); 
+  @include letter('IBM Plex Mono', 18px, #060A24, 0, 24px, none, center, bold);   
+}
+
+
+#section_podcast{
+  height: auto;
+  h2{
+    height: 62px;
+    padding: 3.875em 4em 0.5416em 2.086em;
+    @include letter('IBM Plex Sans', 3rem, #FFFFFF, 0, 0, none, none, normal);
+    }
+}
+
+.section_podcast{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0em 0.5em;
+    padding: 0em 4.25em 0em 4.25em;
+  }
+.section_podcast_frame{
+    width: auto;
+    padding-top: 0;
+    text-align: center;
+    margin: 0;
+  }
+
+.section_nosotros{
+    margin-left: 0;
+ }
+
+#section_nosotros{
+  transform: translate(0, -2em);
+}
+  .section_nosotros{
+    margin-left: 17.844%;
+    grid-template-columns: 43.524% 44.1565%;
+    grid-template-rows: 1fr;
+    grid-gap: 4.93775%;
+    height:425px;
+  }  
+  .section_nosotros_item{
+    h2{
+      padding: 0;
+      @include letter('IBM Plex Sans', 3rem, #060A24, 0, 2.625rem, none, none, normal);
+    }
+    p{
+      padding: 24px 0px 0px 0px;
+     @include letter('IBM Plex Mono', 0.75rem, #060A24, 0, 1rem, none, none, normal);
+    }
+  }
+  .item1_nosotros{
+    height: 425px;
+    text-align: center;
+    margin: auto;
+  }
+  .item2_nosotros{
+    margin: auto;
+  }
+
+  #section_invitadas{
+    h2{
+      padding: 0px 0px 36px 100px;
+    }
+  }
+
+  .section_invitadas{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .section_invitadas_item_grid{
+    height: auto;
+    line-height:0;
+  }
+  $element_grid: calc((100vw - 27.77vw) / 4); 
+  $margin: calc((100vw - (100vw - 27.77vw)) / 2);
+  
+  #section_topicos{
+    height: 26.625em;
+    h2{
+      padding: 2em 0em 2.5em 5.55em;
+      @include letter('IBM Plex Sans', 2rem, #060A24, 0, 1.625rem, none, none, normal);
+    }
+  }
+
+  .section_topicos_grid{
+    display: grid;
+    grid-template-columns: repeat(4, $element_grid);
+    margin: 0px $margin 0px $margin;
+  }
+  
+  .section_topicos_items_grid{
+    img{
+      padding: 0px 0px 16px 0px;
+    }
+    h3{
+      margin: 0px 20px 0px 20px;
+    }
+  }
+  
+  .item1, .item2, .item3, .item4{
+    margin: 0;
+  }
+  .section_news_title{
+    width: 692px;
+    padding:  150px calc((100% - 692px)/2) 0px calc((100% -  692px)/2);
+  }
+
+  .footer_posdcast_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 2.25em 6.25em 1.1em 6.25em;
+    height: 28px;
+    p{
+      padding: 0;
+    }
+  }
+  .footer_podcast_icon{
+    padding: 0em 0em 0em 2.8125em;
+    i{
+      padding: 0em 0em 0em 2.25em;
+    }
+  }
+}
+//Media query para desktop (1024 - 1440)
+@media (min-width: 1024px){
+
+.screen_nav_ul {
+    li{
+    padding: 0px 0px 0px 48px;
+}
+}
+
+#section_podcast{
+    height: 65.1625em;
+    h2{
+    padding: 3.875em 0em 0.5416em 4.167em;
+}
+}
+
+.section_podcast{
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 4.5em 4.5em;
+  padding: 0em 6.25em 0em 6.25em;
+}
+
+.section_podcast_frame{
+  width: auto;
+  height: 232px;
+}
+
+.section_div_aboutit{
+  margin: 7.5em 0em 0.3125em 12.5em;
+  height: 15.25em;
+}
+.section_aboutit_p_desktop {
+  width: 628px;
+}
+.button_section_aboutit{
+  @include button(16px 59px,56px); 
+}
+
+#section_nosotros{
+  transform: translate(0, -4em);
+}
+
+.section_nosotros{
+  grid-template-columns: 43.524% 39%;
+  height: 660px;
+}
+.section_nosotros_item{ 
+    img{
+      height: 100%;
+   } 
+  p{
+    @include letter('IBM Plex Mono', 1rem, #060A24, 0, 1.5rem, none, none, normal);
+  }
+}
+.item1_nosotros{
+  height: 660px;
+}
+#section_invitadas{
+  h2{
+    padding: 0px 0px 36px 200px;
+    @include letter('IBM Plex Sans', 3rem, #060A24, 0, 2.625rem, none, none, normal);
+  }
+}
+
+.section_invitadas{
+  grid-template-columns: 33.334% 33.334% 33.334%;
+  grid-template-rows: 49% 49%;
+}
+
+#section_topicos{
+  h2{
+    padding: 1.333em 0em 1.666em 4.166em;
+    @include letter('IBM Plex Sans', 3rem, #060A24, 0, 2.625rem, none, none, normal);
+  }
+}
+
+.section_news{
+  height: 32.375em;
+} 
+
+.section_news_title{
+  padding-top: 213px;
+  h2{
+    @include letter('IBM Plex Sans', 3rem, #FFFFFF, 0, 2.625rem, none, center, normal);
+  }
+}
+.button_section_news{
+  top: 2em;
+  @include button(0.88em 3.277em, 0); 
+  @include letter('IBM Plex Mono', 1.125em, #060A24, 0, 1.5em, none, center, bold);
+}
+
+.footer_posdcast_container{
+  padding: 3.9em 6.25em 3.9em 6.25em;
+}
+}
