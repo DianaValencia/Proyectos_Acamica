@@ -469,7 +469,6 @@ h1, h2, h3, a{
   @include letter('IBM Plex Mono', 18px, #060A24, 0, 24px, none, center, bold);   
 }
 
-
 #section_podcast{
   height: auto;
   h2{
@@ -508,6 +507,9 @@ h1, h2, h3, a{
     height:425px;
   }  
   .section_nosotros_item{
+    img{
+      height: 100%;
+   } 
     h2{
       padding: 0;
       @include letter('IBM Plex Sans', 3rem, #060A24, 0, 2.625rem, none, none, normal);
@@ -578,7 +580,7 @@ h1, h2, h3, a{
   .footer_posdcast_container{
     display: flex;
     justify-content: space-between;
-    padding: 2.25em 6.25em 1.1em 6.25em;
+    padding: 2.25em 6.25em 3em 6.25em;
     height: 28px;
     p{
       padding: 0;
@@ -639,9 +641,6 @@ h1, h2, h3, a{
   height: 660px;
 }
 .section_nosotros_item{ 
-    img{
-      height: 100%;
-   } 
   p{
     @include letter('IBM Plex Mono', 1rem, #060A24, 0, 1.5rem, none, none, normal);
   }
